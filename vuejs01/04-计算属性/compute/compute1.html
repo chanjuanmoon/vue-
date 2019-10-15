@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>计算属性的复杂操作</title>
+    </head>
+    <body>
+        <div id="app">
+          <h2>总价：{{totalPrice}}</h2>
+        </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                   books:[
+                     {id:110,name:'Unix编程艺术',price:110},
+                     {id:111,name:'代码大全',price:99},
+                     {id:112,name:'深入理解计算机原理',price:115},
+                     {id:113,name:'现代操作系统',price:89}
+                   ]
+                },
+                computed:{
+                  totalPrice:function(){
+                    let result = 0;
+                    for(let i = 0;i<this.books.length;i++){
+                      result += this.books[i].price;
+                    }
+                    return result;
+                  }
+                }
+              
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

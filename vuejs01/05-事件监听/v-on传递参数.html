@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-on传参</title>
+    </head>
+    <body>
+        <div id="app">
+          <h2>{{counter}}</h2>
+          <!-- v-on语法糖：@ -->
+          <!-- v-bind语法糖 : -->
+          <!-- 没有参数时，可以省略括号 -->
+          <button @click="add">+</button>
+          <button @click="dele">-</button>
+
+          <!-- 在事件定义时，写函数时省略了小括号，但是方法本身是需要一个参数的，这个时候
+              vue会默认将浏览器生产的events事件对象作为参数传入
+          -->
+          <button @click="btnclick">点击</button>
+
+          <!-- 方法定义时，我们需要event对象，同时又需要event对象 
+              在调用方法时，如何手动获取到浏览器对象：$event
+          -->
+          <button @click="btn1click(123,$event)">点击1</button>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                    counter:0
+                },
+                methods:{
+                  add(){
+                    this.counter ++;
+                  },
+                  dele(){
+                    this.counter --;
+                  },
+                  btnclick(abc){
+                    console.log(abc);
+                  },
+                  btn1click(abc,event){
+                    console.log(abc);
+                    console.log(event);
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

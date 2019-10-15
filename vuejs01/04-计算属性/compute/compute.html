@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>计算属性的基本使用</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>{{fullName}}</h2>
+        </div>
+        <script src="../../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                    firstName:'litter',
+                    lastName:'bai'
+                },
+                //计算属性 computed
+                computed:{
+                    fullName:function(){
+                        return this.firstName + ' ' + this.lastName;
+                    }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

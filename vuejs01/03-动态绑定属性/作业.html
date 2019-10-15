@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-for \ v-bind</title>
+        <style>
+          .active{
+            color:red;
+          }
+          #app ul li{
+            cursor: pointer;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+          <ul>
+            <li v-for="(item,index) in movies" @click="addClass(index)" :class="{active:index==current}">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:"#app",
+                data:{
+                    current:-1,
+                    movies:['海王','哪吒','经济的巨人','美人鱼'],
+                    active:false
+                },
+                methods:{
+                  addClass:function(index){
+                    this.current = index;
+                  }
+                 
+                }
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue父子组件间的通信-案例</title>
+    </head>
+    <body>
+        <div id="app">
+          <childcpn @increment = 'changeTotal' @decrement= 'changeTotal'></childcpn>
+          <h2>点击次数:{{parenttotal}}</h2>
+        </div>
+        <template id='cpn'>
+          <div>
+            <button @click="increment">+</button>
+            <button @click='decrement'>-</button>
+          </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+
+            //子组件
+            const childcpn = {
+              template:'#cpn',
+              props:{
+                ctotal:{
+                  type:Number,
+                  default:0
+                }
+              },
+              data(){
+                return{
+                  total:0
+                }
+              },
+              methods:{
+                increment(){
+                  this.total++;
+                  this.$emit('increment',this.total);
+                },
+                decrement(){
+                  this.total--;
+                  this.$emit('decrement',this.total);
+                }
+              }
+            }
+            //父组件
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                  parenttotal:0
+                },
+                components:{
+                  childcpn
+                },
+                methods:{
+                  changeTotal(total){
+                    this.parenttotal = total;
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

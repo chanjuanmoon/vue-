@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue组件化的基本使用</title>
+    </head>
+    <body>
+        <div id="app">
+          <!-- 3.使用组件 -->
+          <cpn1></cpn1>
+        </div>
+
+        <!-- 1. 使用script标签,注意类型必须是text/x-template-->
+        <!-- <script type="text/x-template" id='cpn'>
+          <div>
+            <h5>我是标题</h5>
+            <h6>我是内容,1</h6>
+          </div>
+        </script> -->
+
+        <!-- 2.使用template标签 -->
+
+        <template id='cpn'>
+            <div>
+                <h5>我是标题</h5>
+                <h6>我是内容,1</h6>
+              </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+
+          //注册全局组件
+          Vue.component('cpn1',{
+            template:'#cpn' 
+          })
+          const app = new Vue({
+              el:'#app',//用于挂载要管理的元素
+              data:{//定义数据
+                  
+              },
+          })
+        </script>
+    </body>
+
+</html>
+
+
+

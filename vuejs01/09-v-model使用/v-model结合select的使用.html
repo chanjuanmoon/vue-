@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-model</title>
+    </head>
+    <body>
+        <div id="app">
+          <!-- 1.选择一个 字符串-->
+          <!-- <select name='fruit' v-model='fruit'>
+            <option value='苹果' >苹果</option>
+            <option value='橘子'>橘子</option>
+            <option value='柚子'>柚子</option>
+            <option value='西瓜' >西瓜</option>
+            <option value='火龙果' >火龙果</option>
+            <option value='菠萝'>菠萝</option>
+          </select>
+          <h2>您选择的是：{{fruit}}</h2> -->
+          <!-- 2.选择多个 数组-->
+          <select name='fruit' v-model='fruits' multiple>
+              <option value='苹果' >苹果</option>
+              <option value='橘子'>橘子</option>
+              <option value='柚子'>柚子</option>
+              <option value='西瓜' >西瓜</option>
+              <option value='火龙果' >火龙果</option>
+              <option value='菠萝'>菠萝</option>
+            </select>
+            <h2>您选择的是：{{fruits}}</h2>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                  fruit:'菠萝',
+                  fruits:[]
+                  
+                },
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

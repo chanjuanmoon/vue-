@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>子组件访问父组件$parent</title>
+    </head>
+    <body>
+        <div id="app">
+          <cpn></cpn>
+        </div>
+        <template id='cpn'>
+          <div>
+              <ccpn></ccpn>
+          </div>
+        </template>
+
+        <template id='ccpn'>
+          <div>
+              <h5>我是子组件</h5>
+              <button @click="btnClick">点击获取</button>
+          </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                  name:'我是app'
+                },
+                components:{
+                  cpn:{
+                    template:'#cpn',
+                    data(){
+                      return{
+                        name:'我是cpn'
+                      }
+                    },
+                    components:{
+                      ccpn:{
+                        template:'#ccpn',
+                        methods:{
+                          btnClick(){
+                            //1.访问父组件
+                            console.log(this.$parent);
+                            console.log(this.$parent.name);
+                            //访问根组件
+                            console.log(this.$root);
+                            console.log(this.$root.name);
+                          }
+                    },
+                  },   
+                    }
+                  }
+                }
+                
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>案例</title>
+    </head>
+    <body>
+        <div id="app">
+          <span v-if="isUser">
+            <label for="userName">用户名称</label>
+            <input type="text" id='userName'placeholder="用户名称">            
+          </span>
+          <span v-else>
+              <label for="userEmail">用户邮箱</label>
+              <input type="email" id="userEmail" placeholder="用户邮箱"> 
+          </span>
+          <button @click="showToggle">点击切换</button>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                  isUser:true
+                },
+                methods:{
+                  showToggle(){
+                    this.isUser = !this.isUser;
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

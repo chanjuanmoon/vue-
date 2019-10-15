@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-on基本使用</title>
+    </head>
+    <body>
+        <div id="app">
+          <h2>{{counter}}</h2>
+
+          <!-- v-on语法糖：@ -->
+          <!-- v-bind语法糖 : -->
+          <button @click="add()">+</button>
+          <button @click="dele()">-</button>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                    counter:0
+                },
+                methods:{
+                  add(){
+                    this.counter ++;
+                  },
+                  dele(){
+                    this.counter --;
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

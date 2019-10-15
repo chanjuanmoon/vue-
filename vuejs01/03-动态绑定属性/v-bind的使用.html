@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-bind(src href)</title>
+    </head>
+    <body>
+        <div id="app">
+          <!-- 错误的做法：这里不可以用mustache语法 -->
+          <!-- <img src="{{imageURL}}"> -->
+
+          <!-- 正确的做法：使用v-bind指令 -->
+          <img v-bind:src="imageURL">
+          <a v-bind:href="ahref">百度一下</a>
+
+          <!-- 语法糖的写法 -->
+          <img :src="imageURL">
+          <a :href="ahref">百度一下</a>
+
+
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:"#app",
+                data:{
+                    imageURL:'http://pic33.nipic.com/20131007/13639685_123501617185_2.jpg',
+                    ahref:'https://www.baidu.com'
+                }
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

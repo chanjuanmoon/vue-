@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-on修饰符</title>
+    </head>
+    <body>
+        <div id="app">
+          <!-- 阻止事件冒泡 .stop -->
+          <div @click="divClick">
+            <h2>1111</h2>
+            <button @click.stop="btnClick">点击</button>
+          </div>
+
+          <!-- 阻止默认行为 .prevent -->
+          <button @click.prevent = 'doThis'>点击</button>
+          <!-- 阻止默认行为 .prevent 没有表达式 -->
+          <button @click.prevent>点击</button>
+
+          <!-- 监听某个键盘的键帽的点击 -->
+          <input type="text" @keyup.enter= "keyUp"> 
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',//用于挂载要管理的元素
+                data:{//定义数据
+                   
+
+                },
+                methods:{
+                  divClick(){
+                    console.log('div');
+                  },
+                  btnClick(){
+                    console.log('btn');
+                  },
+                  keyUp(){
+                    console.log('keyUp');
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+

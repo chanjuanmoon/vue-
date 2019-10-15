@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-bind绑定class</title>
+        <style>
+          .active{
+            color:red;
+          }
+          .line{
+            font-size:30px;
+          }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+          <!-- 对象语法 会自动合并class-->
+           <!-- <h2 class="before" v-bind:class="{active:isActive,line:isLine}">{{message}}</h2> -->
+           <!-- 更简便的写法 （语法糖加methods）-->
+           <h2 class="before" :class="getClasses()">{{message}}</h2>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:"#app",
+                data:{
+                  message:'hello',
+                   isActive:true,
+                   isLine:false
+                },
+                methods:{
+                  getClasses:function(){
+                    return {active:this.isActive,line:this.isLine}
+                  }
+                }
+                
+            })
+        </script>
+    </body>
+
+</html>
+
+
+
